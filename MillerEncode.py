@@ -15,10 +15,15 @@ def encode_password(password):
 
 #Isabelle - decode
 def decode_password(password):
-        encoded = [int(x) for x in str(password)]
-        for i in range(8):
-            temp = encoded[i]
+        encoded = [int(float(x)) for x in str(password)]
+        print(encoded)
+        for i in range(7):
+            #fix to if encoded as zero
+            if encoded[i] == 10:
+                encoded[i] += 10
+            temp = (encoded[i] - 3)
             encoded[i] = temp
+
         decodedPassword = ''.join(map(str, encoded))
 
         print(f'The encoded password is {password}, and the original password is {decodedPassword}\n')
@@ -31,11 +36,11 @@ def main():
         if menu_select == 1:
             user_password = input("Please enter your password to encode: ")
             encoded_user_password = encode_password(user_password)
-
+            print(encoded_user_password)
         #Isabelle - decode
-        elif menu_select == 2:
+        if menu_select == 2:
             decode_password(encoded_user_password)
-        elif menu_select == 3:
+        if menu_select == 3:
             break
         else:
             print("Invalid selection, please try again.")
