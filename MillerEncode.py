@@ -38,9 +38,9 @@ def main():
             encoded_user_password = encode_password(user_password)
             print(encoded_user_password)
         #Isabelle - decode
-        if menu_select == 2:
+        elif menu_select == 2:
             decode_password(encoded_user_password)
-        if menu_select == 3:
+        elif menu_select == 3:
             break
         else:
             print("Invalid selection, please try again.")
